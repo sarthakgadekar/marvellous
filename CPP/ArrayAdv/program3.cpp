@@ -1,0 +1,39 @@
+/* Problem Statement: Find the Unique Element
+Problem Level: MEDIUM
+
+Problem Description:
+You have been given an integer array/list(ARR) of size N. Where N is equal to [2M + 1].
+Now, in the given array/list, 'M' numbers are present twice and one number is present only once.
+You need to find and return that number which is unique in the array/list.
+
+Note:
+Unique element is always present in the array/list according to the given condition.
+
+solved using XOR method
+*/
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int findUniqueElement(int *Arr, int size)
+{
+    if (size % 2 == 0)
+    {
+        return -1;
+    }
+    int XOR = 0;
+    for (int iStart = 0; iStart < size; iStart++)
+    {
+        XOR = XOR ^ Arr[iStart];
+    }
+    return XOR;
+}
+int main()
+{
+    int Arr[] = {6, 6, 7, 7, 8, 8, 9, 9,10};
+    int size = 9;
+    int iRet = findUniqueElement(Arr, size);
+    cout << iRet;
+    return 0;
+}
